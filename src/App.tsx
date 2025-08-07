@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Step1 from './pages/Step1';
 import Step2 from './pages/Step2';
-import Step3 from './pages/Step3';
 
 function App() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -12,8 +11,6 @@ function App() {
         return <Step1 />;
       case 2:
         return <Step2 />;
-      case 3:
-        return <Step3 />;
       default:
         return <Step1 />;
     }
@@ -48,23 +45,9 @@ function App() {
               <span className={`w-5 h-5 rounded-full text-white text-sm flex items-center justify-center ${currentStep === 2 ? "bg-blue-600" : "bg-gray-300"}`}>
                 2
               </span>
-              Financial Entry
+              Financial Entry & Review
             </div>
-            <p className="text-sm ml-7 text-gray-500">Upload Balance Sheets, Profit & Loss Statements, Cash Flow Statements</p>
-          </li>
-
-          {/* Step 3 */}
-          <li
-            onClick={() => setCurrentStep(3)}
-            className={`cursor-pointer ${currentStep === 3 ? "text-blue-600 font-semibold" : "text-gray-400"}`}
-          >
-            <div className="flex items-center gap-2">
-              <span className={`w-5 h-5 rounded-full text-white text-sm flex items-center justify-center ${currentStep === 3 ? "bg-blue-600" : "bg-gray-300"}`}>
-                3
-              </span>
-              Review & Submit
-            </div>
-            <p className="text-sm ml-7 text-gray-500">Check your documents, confirm accuracy, and submit the documents</p>
+            <p className="text-sm ml-7 text-gray-500">Upload financial documents, review declarations, and submit application</p>
           </li>
         </ol>
       </aside>

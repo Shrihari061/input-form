@@ -14,39 +14,37 @@ A React-based web application for managing company loan origination processes wi
   - Designation selection (RM/BM)
   - Loan type and amount fields
 
-### Step 2: Document Upload
+### Step 2: Financial Entry & Review
 - Upload financial documents (Balance Sheet, P&L, Cash Flow)
 - Multiple file upload support
 - Auditor verification checkboxes
-
-### Step 3: Review & Submit
-- Final review of all submitted information
-- Declaration checkboxes
+- Declaration checkboxes for document verification
 - Digital signature upload
+- Final application submission
 
 ## Recent Updates
 
 ### Enhanced Contact Person Management
-- **Designation Field**: Changed from "Assign RM" to "Designation" with RM/BM options
+- **Designation Field**: Auto-populated text field (RM/BM) based on contact person selection
 - **Contact Person Dropdown**: Converted from text input to dropdown with hardcoded values
-- **Auto-Population**: Phone numbers automatically populate when selecting a contact person
-- **Hardcoded Contact List**: Includes both Indian and international contact persons
+- **Auto-Population**: Phone numbers and designations automatically populate when selecting a contact person
+- **Hardcoded Contact List**: Includes both Indian and international contact persons with their respective designations
 
 ### Contact Person List
-- Ashwini Shekhawat (+91-98765-43210)
-- Sarah Johnson (+1-555-0123)
-- Shrihari Rao (+91-87654-32109)
-- Emily Davis (+1-555-0124)
-- Rajesh Kumar (+91-76543-21098)
-- Lisa Anderson (+1-555-0125)
-- Robert Taylor (+1-555-0126)
-- Jennifer Martinez (+1-555-0127)
-- David Schwimmer (+1-555-0128)
-- Monica Geller (+1-555-0129)
-- Phoebe Buffay (+1-555-0130)
-- Joey Tribbiani (+1-555-0131)
-- Chandler Bing (+1-555-0132)
-- Rachel Green (+1-555-0133)
+- Ashwini Shekhawat (+91-98765-43210) - RM
+- Sarah Johnson (+1-555-0123) - BM
+- Shrihari Rao (+91-87654-32109) - RM
+- Emily Davis (+1-555-0124) - BM
+- Rajesh Kumar (+91-76543-21098) - RM
+- Lisa Anderson (+1-555-0125) - BM
+- Robert Taylor (+1-555-0126) - RM
+- Jennifer Martinez (+1-555-0127) - BM
+- David Schwimmer (+1-555-0128) - RM
+- Monica Geller (+1-555-0129) - BM
+- Phoebe Buffay (+1-555-0130) - RM
+- Joey Tribbiani (+1-555-0131) - BM
+- Chandler Bing (+1-555-0132) - RM
+- Rachel Green (+1-555-0133) - BM
 
 ## Technology Stack
 
@@ -96,8 +94,7 @@ src/
 ├── main.tsx             # Application entry point
 ├── pages/
 │   ├── Step1.tsx        # Company Info & AML Check
-│   ├── Step2.tsx        # Document Upload
-│   └── Step3.tsx        # Review & Submit
+│   └── Step2.tsx        # Financial Entry & Review
 ├── assets/              # Static assets
 └── index.css            # Global styles
 ```

@@ -33,37 +33,39 @@ export default function Step1() {
   const [contactPerson, setContactPerson] = useState<string>('');
   const [phoneNumber, setPhoneNumber] = useState<string>('');
   
-  const [availableDesignations] = useState<string[]>(['RM', 'BM']); // Designation options
-  
-  // Contact person data with phone numbers
-  const [contactPersonData] = useState<Array<{name: string, phone: string}>>([
-    { name: 'Ashwini Shekhawat', phone: '+91-98765-43210' },
-    { name: 'Sarah Johnson', phone: '+1-555-0123' },
-    { name: 'Shrihari Rao', phone: '+91-87654-32109' },
-    { name: 'Emily Davis', phone: '+1-555-0124' },
-    { name: 'Rajesh Kumar', phone: '+91-76543-21098' },
-    { name: 'Lisa Anderson', phone: '+1-555-0125' },
-    { name: 'Robert Taylor', phone: '+1-555-0126' },
-    { name: 'Jennifer Martinez', phone: '+1-555-0127' },
-    { name: 'David Schwimmer', phone: '+1-555-0128' },
-    { name: 'Monica Geller', phone: '+1-555-0129' },
-    { name: 'Phoebe Buffay', phone: '+1-555-0130' },
-    { name: 'Joey Tribbiani', phone: '+1-555-0131' },
-    { name: 'Chandler Bing', phone: '+1-555-0132' },
-    { name: 'Rachel Green', phone: '+1-555-0133' },
+  // Contact person data with phone numbers and designations
+  const [contactPersonData] = useState<Array<{name: string, phone: string, designation: string}>>([
+    { name: 'Ashwini Shekhawat', phone: '+91-98765-43210', designation: 'RM' },
+    { name: 'Sarah Johnson', phone: '+1-555-0123', designation: 'BM' },
+    { name: 'Shrihari Rao', phone: '+91-87654-32109', designation: 'RM' },
+    { name: 'Emily Davis', phone: '+1-555-0124', designation: 'BM' },
+    { name: 'Rajesh Kumar', phone: '+91-76543-21098', designation: 'RM' },
+    { name: 'Lisa Anderson', phone: '+1-555-0125', designation: 'BM' },
+    { name: 'Robert Taylor', phone: '+1-555-0126', designation: 'RM' },
+    { name: 'Jennifer Martinez', phone: '+1-555-0127', designation: 'BM' },
+    { name: 'David Schwimmer', phone: '+1-555-0128', designation: 'RM' },
+    { name: 'Monica Geller', phone: '+1-555-0129', designation: 'BM' },
+    { name: 'Phoebe Buffay', phone: '+1-555-0130', designation: 'RM' },
+    { name: 'Joey Tribbiani', phone: '+1-555-0131', designation: 'BM' },
+    { name: 'Chandler Bing', phone: '+1-555-0132', designation: 'RM' },
+    { name: 'Rachel Green', phone: '+1-555-0133', designation: 'BM' },
   ]);
   
   // Extract just the names for the dropdown
   const availableContactPersons = contactPersonData.map(person => person.name);
 
-  // Function to handle contact person selection and auto-populate phone number
+  // Function to handle contact person selection and auto-populate phone number and designation
   const handleContactPersonChange = (selectedPerson: string) => {
     setContactPerson(selectedPerson);
     if (selectedPerson) {
       const personData = contactPersonData.find(person => person.name === selectedPerson);
-      setPhoneNumber(personData ? personData.phone : '');
+      if (personData) {
+        setPhoneNumber(personData.phone);
+        setDesignation(personData.designation);
+      }
     } else {
       setPhoneNumber('');
+      setDesignation('');
     }
   };
 
@@ -296,16 +298,12 @@ export default function Step1() {
         </div>
         <div>
           <label className="text-sm font-medium">Designation</label>
-          <select 
+          <input 
             value={designation}
             onChange={(e) => setDesignation(e.target.value)}
             className="w-full border px-3 py-2 rounded"
-          >
-            <option value="">Select Designation</option>
-            {availableDesignations.map((designation) => (
-              <option key={designation} value={designation}>{designation}</option>
-            ))}
-          </select>
+            placeholder="Designation will auto-populate"
+          />
         </div>
       </div>
 
