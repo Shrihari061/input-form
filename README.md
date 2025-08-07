@@ -65,8 +65,8 @@ A React-based web application for managing company loan origination processes wi
 
 1. Clone the repository:
 ```bash
-git clone <your-repository-url>
-cd input-form-main
+git clone https://github.com/Shrihari061/input-form.git
+cd input-form
 ```
 
 2. Install dependencies:
